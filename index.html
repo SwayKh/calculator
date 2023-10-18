@@ -12,36 +12,37 @@
 <body>
     <div class="outer-box">
         <div class="inner-box">
-            <div id="display">
-                This Is for displaying the text
+            <div id="past-display"></div>
+            <div id="current-display">
             </div>
             <div class="first-row">
-                <button class="button" id="clear">Clear</button>
-                <button class="button" id="percent">%</button>
-                <button class="button" id="buttonide">/</button>
+                <button class="button" id="clear" data-value="clear">AC</button>
+                <button class="button" id="back" data-value="back">C</button>
+                <button class="button" id="percent" data-value="percent">%</button>
+                <button class="button" id="operator" data-value="/"> / </button>
             </div>
             <div class="second-row">
-                <button class="digit" id="seven">7</button>
-                <button class="digit" id="eight">8</button>
-                <button class="digit" id="nine">9</button>
-                <button class="button" id="multiply">x</button>
+                <button class="digit" id="seven" data-value="7">7</button>
+                <button class="digit" id="eight" data-value="8">8</button>
+                <button class="digit" id="nine" data-value="9">9</button>
+                <button class="button" id="operator" data-value="*""> x </button>
             </div>
-            <div class="third-row">
-                <button class="digit" id="four">4</button>
-                <button class="digit" id="five">5</button>
-                <button class="digit" id="six">6</button>
-                <button class="button" id="subtract">-</button>
+            <div class=" third-row">
+                    <button class="digit" id="four" data-value="4">4</button>
+                    <button class="digit" id="five" data-value="5">5</button>
+                    <button class="digit" id="six" data-value="6">6</button>
+                    <button class="button" id="operator" data-value="-"> - </button>
             </div>
             <div class="forth-row">
-                <button class="digit" id="one">1</button>
-                <button class="digit" id="two">2</button>
-                <button class="digit" id="three">3</button>
-                <button class="button" id="add">+</button>
+                <button class="digit" id="one" data-value="1">1</button>
+                <button class="digit" id="two" data-value="2">2</button>
+                <button class="digit" id="three" data-value="3">3</button>
+                <button class="button" id="operator" data-value="+"> + </button>
             </div>
             <div class="fifth-row">
-                <button class="digit" id="zero">0</button>
-                <button class="digit" id="period">.</button>
-                <button class="button" id="equal">=</button>
+                <button class="digit" id="zero" data-value="0">0</button>
+                <button class="digit" id="period" data-value=".">.</button>
+                <button class="button" id="equal" data-value="="> = </button>
             </div>
 
         </div>
