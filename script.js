@@ -38,7 +38,11 @@ buttons.forEach(item => {
             }
         }
         else if (item.id === 'operator') {
-            if (firstValue === '' && operator === '') {
+            if (currentDisplay.textContent === operator) {
+                operator = item.getAttribute('data-value')
+                currentDisplay.textContent = operator
+            }
+            else if (firstValue === '' && operator === '') {
                 firstValue = currentDisplay.textContent
                 operator = item.getAttribute('data-value')
                 pastDisplay.textContent = firstValue
@@ -54,7 +58,6 @@ buttons.forEach(item => {
                 pastDisplay.textContent = evaluate(firstValue, secondValue, operator)
                 operator = item.getAttribute('data-value')
                 firstValue = pastDisplay.textContent
-                // pastDisplay.textContent += " " + operator
                 currentDisplay.textContent = operator
                 secondValue = ''
             }
@@ -99,6 +102,11 @@ function evaluate(a, b, operation) {
         return (Number(a) * Number(b)).toFixed(4)
     }
     else if (operation === '/') {
-        return (Number(a) / Number(b)).toFixed(4)
+        if (b == 0) {
+            return "Sorry! Can't divide by 0"
+        }
+        else {
+            return (Number(a) / Number(b)).toFixed(4)
+        }
     }
 }
