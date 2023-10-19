@@ -69,7 +69,23 @@ buttons.forEach(item => {
             }
         }
         else {
-            if (operator === '' && firstValue === '') {
+            if (item.id === 'period') {
+                if (!String(currentDisplay.textContent).includes('.') && operator === '') {
+                    currentDisplay.textContent += item.textContent
+                }
+                else if (!String(currentDisplay.textContent).includes('.') && operator !== '') {
+                    if (currentDisplay.textContent === operator) {
+                        currentDisplay.textContent = ''
+                        pastDisplay.textContent = pastDisplay.textContent + " " + operator
+                        currentDisplay.textContent += item.textContent
+                    }
+                    else {
+                        currentDisplay.textContent += item.textContent
+                    }
+                    //Do nothing
+                }
+            }
+            else if (operator === '' && firstValue === '') {
                 currentDisplay.textContent += item.textContent
             }
             else if (operator === '' && firstValue !== '') {
@@ -93,20 +109,29 @@ buttons.forEach(item => {
 
 function evaluate(a, b, operation) {
     if (operation === '+') {
-        return (Number(a) + Number(b)).toFixed(4)
+        return trimTrailingZeros(Number(a) + Number(b))
     }
     else if (operation === '-') {
-        return (Number(a) - Number(b)).toFixed(4)
+        return trimTrailingZeros(Number(a) - Number(b))
     }
     else if (operation === '*') {
-        return (Number(a) * Number(b)).toFixed(4)
+        return trimTrailingZeros(Number(a) * Number(b))
     }
     else if (operation === '/') {
         if (b == 0) {
-            return "Sorry! Can't divide by 0"
+            return "Undefined"
         }
         else {
-            return (Number(a) / Number(b)).toFixed(4)
+            return trimTrailingZeros(Number(a) / Number(b))
         }
     }
+}
+
+function trimTrailingZeros(input) {
+    const number = parseFloat(input);
+    if (!isNaN(number)) {
+        const trimmed = number.toFixed(3);
+        return trimmed.replace(/\.?0*$/, '');
+    }
+    return input;
 }
